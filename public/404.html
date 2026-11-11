@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>跳转中…</title>
+    <script>
+      // GitHub Pages 的 SPA 深链接回退：
+      // 用户直接访问 /language-learning-site/en/pronunciation 等路径时，
+      // Pages 会返回本页面，把真实路径存入 sessionStorage 后跳回站点首页，
+      // 由站内路由脚本还原并渲染对应页面。
+      ;(function () {
+        var base = '/language-learning-site/'
+        var full = location.pathname + location.search + location.hash
+        var path = full
+        if (full.indexOf(base) === 0) {
+          path = full.slice(base.length - 1) // 保留开头的 /
+        } else {
+          path = '/'
+        }
+        sessionStorage.setItem('spa-redirect', path)
+        location.replace(base)
+      })()
+    </script>
+  </head>
+  <body>
+    <p style="font-family: sans-serif; color: #667085; text-align: center; margin-top: 48px">正在跳转…</p>
+  </body>
+</html>
