@@ -1,10 +1,16 @@
 // 韩语课程数据（4 个模块各 1 课）
+//
+// 每节课可选配一段讲解视频（LessonVideo 组件用 iframe 嵌入，零托管成本）：
+//   video: { provider: 'bilibili', id: 'BV1xx4y1xxx', page: 1 }
+//   video: { provider: 'youtube',  id: 'dQw4w9WgXcQ' }
+// 有 video 时，详情页顶部会显示视频播放器并隐藏 lesson.image 封面。
 
 export default {
   pronunciation: [
     {
       id: 'ko-p1',
       image: 'images/lessons/ko-p1.webp',
+      // video: { provider: 'bilibili', id: 'BV请替换成真实BV号' },
       title: '韩文字母（谚文）入门：21 元音 19 辅音',
       subtitle: '会拼就能读',
       minutes: 15,

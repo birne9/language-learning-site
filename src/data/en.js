@@ -1,11 +1,17 @@
 // 英语课程数据（4 个模块各 1 课）
-// section 类型：text=段落讲解 / char=字母音标卡 / word=词汇卡 / pattern=句型卡 / grammar=语法卡
+// section 类型：text=段落讲解 / char=字母音标卡 / word=词汇卡 / pattern=句型卡 / grammar=语法卡 / chart=音图
+//
+// 每节课可选配一段讲解视频（LessonVideo 组件用 iframe 嵌入，零托管成本）：
+//   video: { provider: 'bilibili', id: 'BV1xx4y1xxx', page: 1 }
+//   video: { provider: 'youtube',  id: 'dQw4w9WgXcQ' }
+// 有 video 时，详情页顶部会显示视频播放器并隐藏 lesson.image 封面。
 
 export default {
   pronunciation: [
     {
       id: 'en-p1',
       image: 'images/lessons/en-p1.webp',
+      // video: { provider: 'bilibili', id: 'BV请替换成真实BV号' },
       title: '英语音标入门：48 个音标一次认识',
       subtitle: '元音 20 个 · 辅音 28 个',
       minutes: 12,

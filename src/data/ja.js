@@ -1,10 +1,16 @@
 // 日语课程数据（4 个模块各 1 课）
+//
+// 每节课可选配一段讲解视频（LessonVideo 组件用 iframe 嵌入，零托管成本）：
+//   video: { provider: 'bilibili', id: 'BV1xx4y1xxx', page: 1 }   // B 站分 P 可省 page（默认 1）
+//   video: { provider: 'youtube',  id: 'dQw4w9WgXcQ' }            // YouTube 视频 ID
+// 有 video 时，详情页顶部会显示视频播放器并隐藏 lesson.image 封面。
 
 export default {
   pronunciation: [
     {
       id: 'ja-p1',
       image: 'images/lessons/ja-p1.webp',
+      // video: { provider: 'bilibili', id: 'BV请替换成真实BV号' },
       title: '五十音图入门：平假名 46 个',
       subtitle: '清音 · 浊音 · 拗音',
       minutes: 15,

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { languages, modules, findLesson } from '../data'
 import AudioButton from '../components/AudioButton.vue'
+import LessonVideo from '../components/LessonVideo.vue'
 
 const route = useRoute()
 const code = computed(() => route.params.lang)
@@ -68,7 +69,9 @@ function speakCell(cell, speechLang) {
       </div>
     </section>
 
-    <div v-if="lesson.image" class="lesson-hero">
+    <LessonVideo v-if="lesson.video" :video="lesson.video" :title="lesson.title" />
+
+    <div v-else-if="lesson.image" class="lesson-hero">
       <img :src="base + lesson.image" :alt="lesson.title" loading="lazy" decoding="async" />
     </div>
 
