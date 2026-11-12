@@ -1,5 +1,6 @@
-/* 全局样式：简洁现代浅色 */
+/* 全局样式：简洁现代浅色（默认），支持跟随系统 + 手动切换深色 */
 :root {
+  color-scheme: light;
   --bg: #f6f8fb;
   --bg-soft: #eef2f8;
   --card: #ffffff;
@@ -11,14 +12,58 @@
   --accent-soft: #eaf1fe;
   --accent-2: #4f7ff5;
   --accent-deep: #1e3a8a;
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --track-bg: rgba(16, 24, 40, 0.08);
   --radius: 14px;
   --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 16px rgba(16, 24, 40, 0.05);
 }
 
-/* 语言主题色，挂在页面根节点上（--accent-2 用于渐变横幅的副色） */
-.theme-en { --accent: #2563eb; --accent-soft: #eaf1fe; --accent-2: #4f7ff5; --accent-deep: #1e3a8a; }
-.theme-ko { --accent: #e11d48; --accent-soft: #fdeef2; --accent-2: #f4708c; --accent-deep: #831843; }
-.theme-ja { --accent: #059669; --accent-soft: #e7f7f1; --accent-2: #34c98f; --accent-deep: #064e3b; }
+/* 语言主题色，挂在页面根节点上（--accent-soft 用于浅色底，--accent-soft-dark 用于深色底） */
+.theme-en { --accent: #2563eb; --accent-soft: #eaf1fe; --accent-soft-dark: #1a2547; --accent-2: #4f7ff5; --accent-deep: #1e3a8a; }
+.theme-ko { --accent: #e11d48; --accent-soft: #fdeef2; --accent-soft-dark: #3a1522; --accent-2: #f4708c; --accent-deep: #831843; }
+.theme-ja { --accent: #059669; --accent-soft: #e7f7f1; --accent-soft-dark: #0d2a20; --accent-2: #34c98f; --accent-deep: #064e3b; }
+
+/* 深色模式：跟随系统（未手动指定时） */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1419;
+    --bg-soft: #17202a;
+    --card: #1e2733;
+    --border: #2a3441;
+    --text: #e5e9f0;
+    --text-2: #a5b0bf;
+    --text-3: #6b7685;
+    --header-bg: rgba(30, 39, 51, 0.92);
+    --track-bg: rgba(255, 255, 255, 0.10);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+  :root:not([data-theme="light"]) .theme-en,
+  :root:not([data-theme="light"]) .theme-ko,
+  :root:not([data-theme="light"]) .theme-ja {
+    --accent-soft: var(--accent-soft-dark);
+  }
+}
+
+/* 深色模式：手动切换（覆盖系统偏好） */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1419;
+  --bg-soft: #17202a;
+  --card: #1e2733;
+  --border: #2a3441;
+  --text: #e5e9f0;
+  --text-2: #a5b0bf;
+  --text-3: #6b7685;
+  --header-bg: rgba(30, 39, 51, 0.92);
+  --track-bg: rgba(255, 255, 255, 0.10);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+:root[data-theme="dark"] .theme-en,
+:root[data-theme="dark"] .theme-ko,
+:root[data-theme="dark"] .theme-ja {
+  --accent-soft: var(--accent-soft-dark);
+}
 
 * { box-sizing: border-box; }
 
@@ -203,7 +248,7 @@ a { color: inherit; text-decoration: none; }
   padding: 26px 28px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: linear-gradient(135deg, var(--accent-soft) 0%, #ffffff 70%);
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--card) 70%);
   box-shadow: var(--shadow);
 }
 .module-hero-deco {
@@ -282,7 +327,7 @@ a { color: inherit; text-decoration: none; }
   padding: 26px 28px 28px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: linear-gradient(135deg, var(--accent-soft) 0%, #ffffff 68%);
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--card) 68%);
   box-shadow: var(--shadow);
 }
 .lesson-head-deco {
@@ -303,7 +348,7 @@ a { color: inherit; text-decoration: none; }
   margin-top: 16px;
   height: 7px;
   border-radius: 999px;
-  background: rgba(16, 24, 40, 0.08);
+  background: var(--track-bg);
   overflow: hidden;
 }
 .lesson-progress-fill {
@@ -338,7 +383,7 @@ a { color: inherit; text-decoration: none; }
 }
 .intro-box {
   position: relative;
-  background: linear-gradient(135deg, var(--accent-soft), #ffffff 60%);
+  background: linear-gradient(135deg, var(--accent-soft), var(--card) 60%);
   border: 1px solid var(--border);
   border-left: 4px solid var(--accent);
   border-radius: var(--radius);
@@ -577,7 +622,7 @@ a { color: inherit; text-decoration: none; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -610,6 +655,21 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-item:hover { color: var(--accent); background: var(--bg-soft); }
 .nav-item.active { color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+
+/* 顶栏右侧（导航 + 主题切换） */
+.header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.theme-toggle {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-2);
+  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent-2); transform: translateY(-1px); }
+.theme-toggle svg { width: 16px; height: 16px; }
 
 /* 语言首页的“从第一课开始”按钮（置于彩色横幅内，白底反色） */
 .start-btn {

@@ -4,7 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="面向中文母语学习者的英语、韩语、日语入门学习网站：发音、词汇、句型、语法。" />
+    <meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)" />
     <title>三语学习站 · 英语 / 韩语 / 日语</title>
+    <script>
+      // 前置主题：避免首屏闪一下浅色
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>
