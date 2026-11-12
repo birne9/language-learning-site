@@ -868,3 +868,63 @@ a { color: inherit; text-decoration: none; }
 }
 .path-step .ps-icon { font-size: 15px; }
 .path-step .ps-name { font-weight: 600; color: var(--text); }
+
+/* ============================================================
+   移动端适配
+   ============================================================ */
+
+/* 去掉触屏点击的高亮闪块 */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* 触屏没有 hover：把原本只在悬停出现的色条与 CTA 直接显示出来 */
+@media (hover: none) {
+  .module-cta,
+  .lang-go,
+  .lesson-cta { opacity: 1; transform: none; }
+  .module-card::before,
+  .lang-card::before { transform: scaleX(1); }
+  .lesson-card::before { transform: scaleY(1); }
+}
+
+/* ≤640px：重排顶栏——品牌独占一行，导航变成可横向滑动的一行，主题按钮靠右 */
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+  .header-inner { height: auto; gap: 10px 14px; padding: 10px 0; }
+  .header-right { flex: 1 1 100%; align-items: center; justify-content: space-between; gap: 10px; }
+  .header-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .header-nav::-webkit-scrollbar { display: none; }
+  .nav-item { flex: none; white-space: nowrap; padding: 7px 13px; font-size: 13.5px; }
+  .theme-toggle { flex: none; }
+  .path-strip { gap: 8px; }
+  .path-step { padding: 7px 14px 7px 7px; font-size: 13px; }
+  .lesson-nav { gap: 10px; }
+  .lesson-nav a { padding: 12px 14px; }
+  .chart-td-full .chart-cell { min-width: 120px; }
+}
+
+/* ≤400px：小屏（iPhone SE 等）进一步收紧留白与字号 */
+@media (max-width: 400px) {
+  .container { padding: 0 14px; }
+  .brand-text { display: none; }
+  .site-hero { padding: 28px 18px 30px; }
+  .site-hero-title { font-size: 26px; }
+  .site-hero-stats { gap: 16px; }
+  .shs-num { font-size: 22px; }
+  .lang-hero { padding: 26px 18px 30px; }
+  .lang-hero-native { font-size: 30px; }
+  .module-hero { padding: 18px 16px; }
+  .module-hero-inner { gap: 12px; }
+  .module-hero-icon { width: 48px; height: 48px; font-size: 21px; }
+  .page-title { font-size: 22px; }
+  .lesson-head { padding: 18px 16px 20px; }
+  .lesson-title-main { font-size: 20px; }
+  .module-grid, .lang-grid { gap: 12px; }
+  .chart-group-cells { grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); }
+}
