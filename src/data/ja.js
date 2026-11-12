@@ -4,6 +4,7 @@ export default {
   pronunciation: [
     {
       id: 'ja-p1',
+      image: 'images/lessons/ja-p1.jpg',
       title: '五十音图入门：平假名 46 个',
       subtitle: '清音 · 浊音 · 拗音',
       minutes: 15,
@@ -12,6 +13,87 @@ export default {
         '五十音按“五段十行”排列，先背行（每行一个辅音），再背段。点击喇叭可以听每个假名的标准发音。',
       ],
       sections: [
+        {
+          type: 'chart',
+          title: '五十音图 · 清音（平假名 / 片假名 / 罗马音）',
+          corner: '假名',
+          cols: ['あ段', 'い段', 'う段', 'え段', 'お段'],
+          rows: [
+            { label: 'あ行', cells: [
+              { main: 'あ', sub: 'ア', romaji: 'a' },
+              { main: 'い', sub: 'イ', romaji: 'i' },
+              { main: 'う', sub: 'ウ', romaji: 'u' },
+              { main: 'え', sub: 'エ', romaji: 'e' },
+              { main: 'お', sub: 'オ', romaji: 'o' },
+            ]},
+            { label: 'か行', cells: [
+              { main: 'か', sub: 'カ', romaji: 'ka' },
+              { main: 'き', sub: 'キ', romaji: 'ki' },
+              { main: 'く', sub: 'ク', romaji: 'ku' },
+              { main: 'け', sub: 'ケ', romaji: 'ke' },
+              { main: 'こ', sub: 'コ', romaji: 'ko' },
+            ]},
+            { label: 'さ行', cells: [
+              { main: 'さ', sub: 'サ', romaji: 'sa' },
+              { main: 'し', sub: 'シ', romaji: 'shi' },
+              { main: 'す', sub: 'ス', romaji: 'su' },
+              { main: 'せ', sub: 'セ', romaji: 'se' },
+              { main: 'そ', sub: 'ソ', romaji: 'so' },
+            ]},
+            { label: 'た行', cells: [
+              { main: 'た', sub: 'タ', romaji: 'ta' },
+              { main: 'ち', sub: 'チ', romaji: 'chi' },
+              { main: 'つ', sub: 'ツ', romaji: 'tsu' },
+              { main: 'て', sub: 'テ', romaji: 'te' },
+              { main: 'と', sub: 'ト', romaji: 'to' },
+            ]},
+            { label: 'な行', cells: [
+              { main: 'な', sub: 'ナ', romaji: 'na' },
+              { main: 'に', sub: 'ニ', romaji: 'ni' },
+              { main: 'ぬ', sub: 'ヌ', romaji: 'nu' },
+              { main: 'ね', sub: 'ネ', romaji: 'ne' },
+              { main: 'の', sub: 'ノ', romaji: 'no' },
+            ]},
+            { label: 'は行', cells: [
+              { main: 'は', sub: 'ハ', romaji: 'ha' },
+              { main: 'ひ', sub: 'ヒ', romaji: 'hi' },
+              { main: 'ふ', sub: 'フ', romaji: 'fu' },
+              { main: 'へ', sub: 'ヘ', romaji: 'he' },
+              { main: 'ほ', sub: 'ホ', romaji: 'ho' },
+            ]},
+            { label: 'ま行', cells: [
+              { main: 'ま', sub: 'マ', romaji: 'ma' },
+              { main: 'み', sub: 'ミ', romaji: 'mi' },
+              { main: 'む', sub: 'ム', romaji: 'mu' },
+              { main: 'め', sub: 'メ', romaji: 'me' },
+              { main: 'も', sub: 'モ', romaji: 'mo' },
+            ]},
+            { label: 'や行', cells: [
+              { main: 'や', sub: 'ヤ', romaji: 'ya' },
+              null,
+              { main: 'ゆ', sub: 'ユ', romaji: 'yu' },
+              null,
+              { main: 'よ', sub: 'ヨ', romaji: 'yo' },
+            ]},
+            { label: 'ら行', cells: [
+              { main: 'ら', sub: 'ラ', romaji: 'ra' },
+              { main: 'り', sub: 'リ', romaji: 'ri' },
+              { main: 'る', sub: 'ル', romaji: 'ru' },
+              { main: 'れ', sub: 'レ', romaji: 're' },
+              { main: 'ろ', sub: 'ロ', romaji: 'ro' },
+            ]},
+            { label: 'わ行', cells: [
+              { main: 'わ', sub: 'ワ', romaji: 'wa' },
+              null,
+              null,
+              null,
+              { main: 'を', sub: 'ヲ', romaji: 'wo' },
+            ]},
+            { label: '拨音', single: true, cells: [
+              { main: 'ん', sub: 'ン', romaji: 'n' },
+            ]},
+          ],
+        },
         {
           type: 'char',
           title: 'あ行 · か行 · さ行',
@@ -92,6 +174,7 @@ export default {
   vocabulary: [
     {
       id: 'ja-v1',
+      image: 'images/lessons/ja-v1.jpg',
       title: '日语数字与问候词汇',
       subtitle: '数字 1-10 · 百千万 · 高频问候',
       minutes: 10,
@@ -155,6 +238,7 @@ export default {
   sentences: [
     {
       id: 'ja-s1',
+      image: 'images/lessons/ja-s1.jpg',
       title: '日语自我介绍与问候：9 个高频句型',
       subtitle: 'はじめまして から始める',
       minutes: 8,
@@ -198,6 +282,7 @@ export default {
   grammar: [
     {
       id: 'ja-g1',
+      image: 'images/lessons/ja-g1.jpg',
       title: 'です/ます 礼貌体与 は 助词',
       subtitle: '日语礼貌表达的起点',
       minutes: 12,

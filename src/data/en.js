@@ -5,6 +5,7 @@ export default {
   pronunciation: [
     {
       id: 'en-p1',
+      image: 'images/lessons/en-p1.jpg',
       title: '英语音标入门：48 个音标一次认识',
       subtitle: '元音 20 个 · 辅音 28 个',
       minutes: 12,
@@ -13,6 +14,147 @@ export default {
         '下面先认识最常用的音标，每个音标配一个示范单词。点击喇叭图标可以听示范单词的标准读音。',
       ],
       sections: [
+        {
+          type: 'chart',
+          title: '辅音音图 · 按发音部位与方法',
+          corner: '发音方式',
+          cols: ['双唇', '唇齿', '齿', '齿龈', '龈后·硬腭', '软腭', '声门'],
+          rows: [
+            { label: '塞音 · 清', cells: [
+              { main: '/p/', romaji: 'pen', speak: 'pen' },
+              null, null,
+              { main: '/t/', romaji: 'ten', speak: 'ten' },
+              null,
+              { main: '/k/', romaji: 'cat', speak: 'cat' },
+              null,
+            ]},
+            { label: '塞音 · 浊', cells: [
+              { main: '/b/', romaji: 'bag', speak: 'bag' },
+              null, null,
+              { main: '/d/', romaji: 'dog', speak: 'dog' },
+              null,
+              { main: '/ɡ/', romaji: 'go', speak: 'go' },
+              null,
+            ]},
+            { label: '擦音 · 清', cells: [
+              null,
+              { main: '/f/', romaji: 'five', speak: 'five' },
+              { main: '/θ/', romaji: 'think', speak: 'think' },
+              { main: '/s/', romaji: 'see', speak: 'see' },
+              { main: '/ʃ/', romaji: 'she', speak: 'she' },
+              null,
+              { main: '/h/', romaji: 'he', speak: 'he' },
+            ]},
+            { label: '擦音 · 浊', cells: [
+              null,
+              { main: '/v/', romaji: 'very', speak: 'very' },
+              { main: '/ð/', romaji: 'this', speak: 'this' },
+              { main: '/z/', romaji: 'zoo', speak: 'zoo' },
+              { main: '/ʒ/', romaji: 'vision', speak: 'vision' },
+              null, null,
+            ]},
+            { label: '塞擦音 · 清', cells: [
+              null, null, null,
+              { main: '/ts/ /tr/', romaji: 'hats · train', speak: 'train' },
+              { main: '/tʃ/', romaji: 'chair', speak: 'chair' },
+              null, null,
+            ]},
+            { label: '塞擦音 · 浊', cells: [
+              null, null, null,
+              { main: '/dz/ /dr/', romaji: 'goods · drive', speak: 'drive' },
+              { main: '/dʒ/', romaji: 'jump', speak: 'jump' },
+              null, null,
+            ]},
+            { label: '鼻音', cells: [
+              { main: '/m/', romaji: 'man', speak: 'man' },
+              null, null,
+              { main: '/n/', romaji: 'no', speak: 'no' },
+              null,
+              { main: '/ŋ/', romaji: 'sing', speak: 'sing' },
+              null,
+            ]},
+            { label: '近音', cells: [
+              { main: '/w/', romaji: 'we', speak: 'we' },
+              null, null,
+              { main: '/r/', romaji: 'red', speak: 'red' },
+              { main: '/j/', romaji: 'yes', speak: 'yes' },
+              null, null,
+            ]},
+            { label: '边音', cells: [
+              null, null, null,
+              { main: '/l/', romaji: 'leg', speak: 'leg' },
+              null, null, null,
+            ]},
+          ],
+        },
+        {
+          type: 'chart',
+          title: '单元音音图 · 按舌位前后与高低',
+          corner: '舌位高度',
+          cols: ['前元音', '中元音', '后元音'],
+          rows: [
+            { label: '闭元音', cells: [
+              { main: '/iː/', romaji: 'see', speak: 'see' },
+              null,
+              { main: '/uː/', romaji: 'food', speak: 'food' },
+            ]},
+            { label: '近闭元音', cells: [
+              { main: '/ɪ/', romaji: 'sit', speak: 'sit' },
+              null,
+              { main: '/ʊ/', romaji: 'book', speak: 'book' },
+            ]},
+            { label: '半高元音', cells: [
+              { main: '/e/', romaji: 'bed', speak: 'bed' },
+              { main: '/ɜː/', romaji: 'bird', speak: 'bird' },
+              { main: '/ɔː/', romaji: 'door', speak: 'door' },
+            ]},
+            { label: '半低元音', cells: [
+              { main: '/æ/', romaji: 'cat', speak: 'cat' },
+              { main: '/ʌ/', romaji: 'cup', speak: 'cup' },
+              { main: '/ɒ/', romaji: 'hot', speak: 'hot' },
+            ]},
+            { label: '开元音', cells: [
+              null,
+              { main: '/ə/', romaji: 'about', speak: 'about' },
+              { main: '/ɑː/', romaji: 'car', speak: 'car' },
+            ]},
+          ],
+        },
+        {
+          type: 'chart',
+          title: '双元音音图 · 按起点与终点',
+          corner: '起点',
+          cols: ['合至 /ɪ/', '合至 /ʊ/', '合至 /ə/'],
+          rows: [
+            { label: 'e 起', cells: [
+              { main: '/eɪ/', romaji: 'day', speak: 'day' },
+              null,
+              { main: '/eə/', romaji: 'air', speak: 'air' },
+            ]},
+            { label: 'a 起', cells: [
+              { main: '/aɪ/', romaji: 'my', speak: 'my' },
+              { main: '/aʊ/', romaji: 'now', speak: 'now' },
+              null,
+            ]},
+            { label: 'ɔ 起', cells: [
+              { main: '/ɔɪ/', romaji: 'boy', speak: 'boy' },
+              null, null,
+            ]},
+            { label: 'ə 起', cells: [
+              null,
+              { main: '/əʊ/', romaji: 'go', speak: 'go' },
+              null,
+            ]},
+            { label: 'ʊ 起', cells: [
+              null, null,
+              { main: '/ʊə/', romaji: 'tour', speak: 'tour' },
+            ]},
+            { label: 'ɪ 起', cells: [
+              null, null,
+              { main: '/ɪə/', romaji: 'here', speak: 'here' },
+            ]},
+          ],
+        },
         {
           type: 'char',
           title: '单元音（12 个）',
@@ -76,6 +218,7 @@ export default {
   vocabulary: [
     {
       id: 'en-v1',
+      image: 'images/lessons/en-v1.jpg',
       title: '数字与时间：最常用的 40 个词',
       subtitle: '基数词 · 序数词 · 时间表达',
       minutes: 10,
@@ -151,6 +294,7 @@ export default {
   sentences: [
     {
       id: 'en-s1',
+      image: 'images/lessons/en-s1.jpg',
       title: '自我介绍与问候：9 个高频句型',
       subtitle: '见面开口的第一套话术',
       minutes: 8,
@@ -199,6 +343,7 @@ export default {
   grammar: [
     {
       id: 'en-g1',
+      image: 'images/lessons/en-g1.jpg',
       title: '一般现在时 vs 现在进行时',
       subtitle: '英语最常用的两种时态',
       minutes: 12,

@@ -18,9 +18,34 @@ const list = computed(() => moduleLessons(code.value, route.params.module))
       <span class="cur">{{ mod.name }}</span>
     </div>
 
+    <section class="module-hero">
+      <div class="module-hero-deco" aria-hidden="true"></div>
+      <div class="module-hero-inner">
+        <div class="module-hero-icon">{{ mod.icon }}</div>
+        <div class="module-hero-text">
+          <div class="module-hero-eyebrow">{{ lang.name }} · {{ list.length }} 课</div>
+          <h1 class="module-hero-title">{{ mod.name }}</h1>
+          <p class="module-hero-desc">{{ mod.desc }}</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="module-tabs">
+      <router-link
+        v-for="m in modules"
+        :key="m.id"
+        :to="`/${code}/${m.id}`"
+        class="module-tab"
+        :class="{ active: m.id === mod.id }"
+      >
+        <span class="mt-icon">{{ m.icon }}</span>
+        <span class="mt-name">{{ m.name }}</span>
+      </router-link>
+    </nav>
+
     <div class="page-head">
-      <h1 class="page-title">{{ mod.name }}</h1>
-      <p class="page-sub">{{ mod.desc }} · 共 {{ list.length }} 课</p>
+      <h2 class="page-title">课程列表</h2>
+      <p class="page-sub">共 {{ list.length }} 节课，按顺序学完本模块。</p>
     </div>
 
     <div class="lesson-list">
@@ -33,9 +58,12 @@ const list = computed(() => moduleLessons(code.value, route.params.module))
         <div class="lesson-index">{{ i + 1 }}</div>
         <div class="lesson-main">
           <div class="lesson-title">{{ l.title }}</div>
-          <div class="lesson-sub">{{ l.subtitle }} · 约 {{ l.minutes }} 分钟</div>
+          <div class="lesson-sub">{{ l.subtitle }}</div>
+          <div class="lesson-meta">
+            <span class="lesson-duration">约 {{ l.minutes }} 分钟</span>
+            <span class="lesson-cta">开始学习 →</span>
+          </div>
         </div>
-        <span class="lesson-arrow">›</span>
       </router-link>
     </div>
   </div>

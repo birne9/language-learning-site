@@ -4,6 +4,7 @@ export default {
   pronunciation: [
     {
       id: 'ko-p1',
+      image: 'images/lessons/ko-p1.jpg',
       title: '韩文字母（谚文）入门：21 元音 19 辅音',
       subtitle: '会拼就能读',
       minutes: 15,
@@ -12,6 +13,91 @@ export default {
         '本课先掌握 10 个基本元音和 14 个基本辅音，再用“辅音 + 元音”的组合练拼读。点击喇叭可以听每个字母的标准发音。',
       ],
       sections: [
+        {
+          type: 'chart',
+          title: '辅音音图 · 按发音部位与方法',
+          corner: '发音方式',
+          cols: ['双唇音', '齿龈音', '龈后音', '软腭音', '声门音'],
+          rows: [
+            { label: '塞音 · 平音', cells: [
+              { main: 'ㅂ', romaji: 'b / p' },
+              { main: 'ㄷ', romaji: 'd / t' },
+              null,
+              { main: 'ㄱ', romaji: 'g / k' },
+              null,
+            ]},
+            { label: '塞音 · 激音', cells: [
+              { main: 'ㅍ', romaji: 'p' },
+              { main: 'ㅌ', romaji: 't' },
+              null,
+              { main: 'ㅋ', romaji: 'k' },
+              null,
+            ]},
+            { label: '塞擦音 · 平音', cells: [
+              null,
+              null,
+              { main: 'ㅈ', romaji: 'j' },
+              null,
+              null,
+            ]},
+            { label: '塞擦音 · 激音', cells: [
+              null,
+              null,
+              { main: 'ㅊ', romaji: 'ch' },
+              null,
+              null,
+            ]},
+            { label: '擦音', cells: [
+              null,
+              { main: 'ㅅ', romaji: 's' },
+              null,
+              null,
+              { main: 'ㅎ', romaji: 'h' },
+            ]},
+            { label: '鼻音', cells: [
+              { main: 'ㅁ', romaji: 'm' },
+              { main: 'ㄴ', romaji: 'n' },
+              null,
+              { main: 'ㅇ', romaji: 'ng / 不发音' },
+              null,
+            ]},
+            { label: '边音', cells: [
+              null,
+              { main: 'ㄹ', romaji: 'r / l' },
+              null,
+              null,
+              null,
+            ]},
+          ],
+        },
+        {
+          type: 'chart',
+          title: '元音音图 · 按阴阳中性',
+          corner: '分类',
+          cols: ['阳性', '阴性', '中性'],
+          rows: [
+            { label: '基本元音', cells: [
+              { main: 'ㅏ', romaji: 'a' },
+              { main: 'ㅓ', romaji: 'eo' },
+              { main: 'ㅡ', romaji: 'eu' },
+            ]},
+            { label: '圆唇元音', cells: [
+              { main: 'ㅗ', romaji: 'o' },
+              { main: 'ㅜ', romaji: 'u' },
+              { main: 'ㅣ', romaji: 'i' },
+            ]},
+            { label: '야 · 여 系', cells: [
+              { main: 'ㅑ', romaji: 'ya' },
+              { main: 'ㅕ', romaji: 'yeo' },
+              null,
+            ]},
+            { label: '요 · 유 系', cells: [
+              { main: 'ㅛ', romaji: 'yo' },
+              { main: 'ㅠ', romaji: 'yu' },
+              null,
+            ]},
+          ],
+        },
         {
           type: 'char',
           title: '基本元音（10 个）',
@@ -81,6 +167,7 @@ export default {
   vocabulary: [
     {
       id: 'ko-v1',
+      image: 'images/lessons/ko-v1.jpg',
       title: '韩语两套数字：固有词 vs 汉字词',
       subtitle: '什么时候用哪一套，一次讲清',
       minutes: 12,
@@ -150,6 +237,7 @@ export default {
   sentences: [
     {
       id: 'ko-s1',
+      image: 'images/lessons/ko-s1.jpg',
       title: '韩语自我介绍与问候：9 个高频句型',
       subtitle: '见面开口的第一套话术',
       minutes: 8,
@@ -199,6 +287,7 @@ export default {
   grammar: [
     {
       id: 'ko-g1',
+      image: 'images/lessons/ko-g1.jpg',
       title: '이에요/예요 与 은/는：韩语句子的地基',
       subtitle: '体词谓语句 + 主题助词',
       minutes: 12,
