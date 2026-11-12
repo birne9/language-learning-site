@@ -12,6 +12,7 @@ export default {
       id: 'en-p1',
       image: 'images/lessons/en-p1.webp',
       // video: { provider: 'bilibili', id: 'BV请替换成真实BV号' },
+      video: { provider: 'bilibili', id: 'BV1HtLz6HEE1', page: 1 },
       title: '英语音标入门：48 个音标一次认识',
       subtitle: '元音 20 个 · 辅音 28 个',
       minutes: 12,

@@ -11,6 +11,7 @@ export default {
       id: 'ja-p1',
       image: 'images/lessons/ja-p1.webp',
       // video: { provider: 'bilibili', id: 'BV请替换成真实BV号' },
+      video: { provider: 'bilibili', id: 'BV11s411U7Li', page: 1 },
       title: '五十音图入门：平假名 46 个',
       subtitle: '清音 · 浊音 · 拗音',
       minutes: 15,

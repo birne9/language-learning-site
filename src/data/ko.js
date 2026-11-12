@@ -11,6 +11,7 @@ export default {
       id: 'ko-p1',
       image: 'images/lessons/ko-p1.webp',
       // video: { provider: 'bilibili', id: 'BV请替换成真实BV号' },
+      video: { provider: 'bilibili', id: 'BV1NW411h7U3', page: 1 },
       title: '韩文字母（谚文）入门：21 元音 19 辅音',
       subtitle: '会拼就能读',
       minutes: 15,
