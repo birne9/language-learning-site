@@ -16,10 +16,10 @@ const src = computed(() => {
   const id = encodeURIComponent(v.id)
   if (v.provider === 'bilibili') {
     const page = v.page || 1
-    return `//player.bilibili.com/player.html?bvid=${v.id}&page=${page}&high_quality=1&danmaku=0`
+    return `https://player.bilibili.com/player.html?bvid=${id}&page=${page}&high_quality=1&danmaku=0`
   }
   if (v.provider === 'youtube') {
-    return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbrandting=1`
+    return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
   }
   return ''
 })
