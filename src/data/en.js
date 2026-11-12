@@ -5,7 +5,7 @@ export default {
   pronunciation: [
     {
       id: 'en-p1',
-      image: 'images/lessons/en-p1.jpg',
+      image: 'images/lessons/en-p1.webp',
       title: '英语音标入门：48 个音标一次认识',
       subtitle: '元音 20 个 · 辅音 28 个',
       minutes: 12,
@@ -218,7 +218,7 @@ export default {
   vocabulary: [
     {
       id: 'en-v1',
-      image: 'images/lessons/en-v1.jpg',
+      image: 'images/lessons/en-v1.webp',
       title: '数字与时间：最常用的 40 个词',
       subtitle: '基数词 · 序数词 · 时间表达',
       minutes: 10,
@@ -294,7 +294,7 @@ export default {
   sentences: [
     {
       id: 'en-s1',
-      image: 'images/lessons/en-s1.jpg',
+      image: 'images/lessons/en-s1.webp',
       title: '自我介绍与问候：9 个高频句型',
       subtitle: '见面开口的第一套话术',
       minutes: 8,
@@ -343,7 +343,7 @@ export default {
   grammar: [
     {
       id: 'en-g1',
-      image: 'images/lessons/en-g1.jpg',
+      image: 'images/lessons/en-g1.webp',
       title: '一般现在时 vs 现在进行时',
       subtitle: '英语最常用的两种时态',
       minutes: 12,

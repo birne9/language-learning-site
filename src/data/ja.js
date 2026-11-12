@@ -4,7 +4,7 @@ export default {
   pronunciation: [
     {
       id: 'ja-p1',
-      image: 'images/lessons/ja-p1.jpg',
+      image: 'images/lessons/ja-p1.webp',
       title: '五十音图入门：平假名 46 个',
       subtitle: '清音 · 浊音 · 拗音',
       minutes: 15,
@@ -174,7 +174,7 @@ export default {
   vocabulary: [
     {
       id: 'ja-v1',
-      image: 'images/lessons/ja-v1.jpg',
+      image: 'images/lessons/ja-v1.webp',
       title: '日语数字与问候词汇',
       subtitle: '数字 1-10 · 百千万 · 高频问候',
       minutes: 10,
@@ -238,7 +238,7 @@ export default {
   sentences: [
     {
       id: 'ja-s1',
-      image: 'images/lessons/ja-s1.jpg',
+      image: 'images/lessons/ja-s1.webp',
       title: '日语自我介绍与问候：9 个高频句型',
       subtitle: 'はじめまして から始める',
       minutes: 8,
@@ -282,7 +282,7 @@ export default {
   grammar: [
     {
       id: 'ja-g1',
-      image: 'images/lessons/ja-g1.jpg',
+      image: 'images/lessons/ja-g1.webp',
       title: 'です/ます 礼貌体与 は 助词',
       subtitle: '日语礼貌表达的起点',
       minutes: 12,

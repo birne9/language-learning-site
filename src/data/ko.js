@@ -4,7 +4,7 @@ export default {
   pronunciation: [
     {
       id: 'ko-p1',
-      image: 'images/lessons/ko-p1.jpg',
+      image: 'images/lessons/ko-p1.webp',
       title: '韩文字母（谚文）入门：21 元音 19 辅音',
       subtitle: '会拼就能读',
       minutes: 15,
@@ -167,7 +167,7 @@ export default {
   vocabulary: [
     {
       id: 'ko-v1',
-      image: 'images/lessons/ko-v1.jpg',
+      image: 'images/lessons/ko-v1.webp',
       title: '韩语两套数字：固有词 vs 汉字词',
       subtitle: '什么时候用哪一套，一次讲清',
       minutes: 12,
@@ -237,7 +237,7 @@ export default {
   sentences: [
     {
       id: 'ko-s1',
-      image: 'images/lessons/ko-s1.jpg',
+      image: 'images/lessons/ko-s1.webp',
       title: '韩语自我介绍与问候：9 个高频句型',
       subtitle: '见面开口的第一套话术',
       minutes: 8,
@@ -287,7 +287,7 @@ export default {
   grammar: [
     {
       id: 'ko-g1',
-      image: 'images/lessons/ko-g1.jpg',
+      image: 'images/lessons/ko-g1.webp',
       title: '이에요/예요 与 은/는：韩语句子的地基',
       subtitle: '体词谓语句 + 主题助词',
       minutes: 12,

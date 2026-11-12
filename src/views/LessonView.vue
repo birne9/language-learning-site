@@ -69,7 +69,7 @@ function speakCell(cell, speechLang) {
     </section>
 
     <div v-if="lesson.image" class="lesson-hero">
-      <img :src="base + lesson.image" :alt="lesson.title" />
+      <img :src="base + lesson.image" :alt="lesson.title" loading="lazy" decoding="async" />
     </div>
 
     <div class="lesson-body">
