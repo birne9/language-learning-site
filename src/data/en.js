@@ -226,6 +226,7 @@ export default {
     {
       id: 'en-v1',
       image: 'images/lessons/en-v1.webp',
+      video: { provider: 'bilibili', id: 'BV1Gi4y1n7GN', page: 1 },
       title: '数字与时间：最常用的 40 个词',
       subtitle: '基数词 · 序数词 · 时间表达',
       minutes: 10,
@@ -302,6 +303,7 @@ export default {
     {
       id: 'en-s1',
       image: 'images/lessons/en-s1.webp',
+      video: { provider: 'bilibili', id: 'BV1bsRaYEEWb', page: 1 },
       title: '自我介绍与问候：9 个高频句型',
       subtitle: '见面开口的第一套话术',
       minutes: 8,
@@ -351,6 +353,7 @@ export default {
     {
       id: 'en-g1',
       image: 'images/lessons/en-g1.webp',
+      video: { provider: 'bilibili', id: 'BV1tYYMzBELh', page: 1 },
       title: '一般现在时 vs 现在进行时',
       subtitle: '英语最常用的两种时态',
       minutes: 12,

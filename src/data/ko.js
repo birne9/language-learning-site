@@ -175,6 +175,7 @@ export default {
     {
       id: 'ko-v1',
       image: 'images/lessons/ko-v1.webp',
+      video: { provider: 'bilibili', id: 'BV1Uv411V7Ad', page: 1 },
       title: '韩语两套数字：固有词 vs 汉字词',
       subtitle: '什么时候用哪一套，一次讲清',
       minutes: 12,
@@ -245,6 +246,7 @@ export default {
     {
       id: 'ko-s1',
       image: 'images/lessons/ko-s1.webp',
+      video: { provider: 'bilibili', id: 'BV1L1MR6zEhM', page: 1 },
       title: '韩语自我介绍与问候：9 个高频句型',
       subtitle: '见面开口的第一套话术',
       minutes: 8,
@@ -295,6 +297,7 @@ export default {
     {
       id: 'ko-g1',
       image: 'images/lessons/ko-g1.webp',
+      video: { provider: 'bilibili', id: 'BV1XJqGBmEth', page: 1 },
       title: '이에요/예요 与 은/는：韩语句子的地基',
       subtitle: '体词谓语句 + 主题助词',
       minutes: 12,

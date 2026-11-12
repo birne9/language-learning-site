@@ -182,6 +182,7 @@ export default {
     {
       id: 'ja-v1',
       image: 'images/lessons/ja-v1.webp',
+      video: { provider: 'bilibili', id: 'BV1jA411A7uM', page: 1 },
       title: '日语数字与问候词汇',
       subtitle: '数字 1-10 · 百千万 · 高频问候',
       minutes: 10,
@@ -246,6 +247,7 @@ export default {
     {
       id: 'ja-s1',
       image: 'images/lessons/ja-s1.webp',
+      video: { provider: 'bilibili', id: 'BV1Dh411J7KS', page: 1 },
       title: '日语自我介绍与问候：9 个高频句型',
       subtitle: 'はじめまして から始める',
       minutes: 8,
@@ -290,6 +292,7 @@ export default {
     {
       id: 'ja-g1',
       image: 'images/lessons/ja-g1.webp',
+      video: { provider: 'bilibili', id: 'BV1aU4y1o7V4', page: 1 },
       title: 'です/ます 礼貌体与 は 助词',
       subtitle: '日语礼貌表达的起点',
       minutes: 12,
