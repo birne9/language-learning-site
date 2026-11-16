@@ -2,7 +2,9 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { findNce1Lesson } from '../data/nce1Lessons'
+import { nce1VideoSource } from '../data/nce1Videos'
 import AudioButton from '../components/AudioButton.vue'
+import LessonVideo from '../components/LessonVideo.vue'
 
 const route = useRoute()
 const lesson = computed(() => findNce1Lesson(route.params.lessonId))
@@ -37,6 +39,22 @@ const progressPct = computed(() => `${Math.round(((lesson.value?.id || 0) / 144)
     </section>
 
     <p class="exam-note">原创学习版：课次与知识顺序对应原书，但不包含原书课文；通过原创例句与练习掌握本课内容。</p>
+
+    <section class="nce1-video-section" aria-labelledby="nce1-videos">
+      <div class="nce1-video-heading">
+        <div>
+          <h2 id="nce1-videos">配套视频</h2>
+          <p>胶学 × 刘羽 Leo · 按 B 站原课程分 P 匹配</p>
+        </div>
+        <a :href="nce1VideoSource" target="_blank" rel="noopener noreferrer">打开原合集 ↗</a>
+      </div>
+      <LessonVideo
+        v-for="video in lesson.videos"
+        :key="video.page"
+        :video="video"
+        :title="`${video.title} · 胶学 × 刘羽 Leo`"
+      />
+    </section>
 
     <div class="lesson-body">
       <section class="section" aria-labelledby="nce1-objectives">

@@ -1239,6 +1239,12 @@ a { color: inherit; text-decoration: none; }
 .nce1-lesson-list { padding: 6px 20px; }
 .nce1-grammar-focus { margin-bottom: 12px; color: var(--accent); font-weight: 700; }
 .nce1-review-note strong { color: var(--text); }
+.nce1-video-section { margin: 18px 0 8px; }
+.nce1-video-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+.nce1-video-heading h2 { margin: 0; font-size: 20px; }
+.nce1-video-heading p { margin: 5px 0 0; color: var(--text-3); font-size: 12.5px; }
+.nce1-video-heading > a { flex: none; color: var(--accent); font-size: 13px; font-weight: 700; }
+.nce1-video-section .lesson-video + .lesson-video { margin-top: 18px; }
 
 @media (max-width: 900px) {
   .nce1-directory-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }

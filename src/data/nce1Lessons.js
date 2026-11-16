@@ -1,4 +1,6 @@
 // 原创学习版：保留课次与知识点顺序，不复制原书课文。
+import { getNce1Videos } from './nce1Videos.js'
+
 const unit = (titles, theme, grammar, words, examples, tasks) => ({
   titles, theme, grammar, words, examples, tasks,
 })
@@ -609,6 +611,7 @@ function createLesson(item, offset) {
     theme: item.theme,
     grammar: item.grammar,
     minutes: isInput ? 20 : 15,
+    videos: getNce1Videos(number),
     objectives: isInput
       ? [`理解“${item.theme}”的基本表达。`, `掌握核心词汇，理解“${item.grammar}”。`, '能朗读原创例句，并完成简单替换。']
       : [`熟练运用“${item.theme}”相关句型。`, `通过替换练习巩固“${item.grammar}”。`, '能脱离例句完成简短口头输出。'],
