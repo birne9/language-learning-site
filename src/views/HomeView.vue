@@ -1,6 +1,9 @@
 <script setup>
-import { languages, modules } from '../data'
+import { languages, modules, lessons } from '../data'
 import { examList } from '../data/exams'
+
+const lessonCount = (code) => Object.values(lessons[code]).reduce((sum, list) => sum + list.length, 0)
+const totalLessons = Object.keys(languages).reduce((sum, code) => sum + lessonCount(code), 0)
 </script>
 
 <template>
@@ -11,12 +14,12 @@ import { examList } from '../data/exams'
         <span class="site-hero-eyebrow">英语 · 韩语 · 日语</span>
         <h1 class="site-hero-title">三语学习站</h1>
         <p class="site-hero-sub">
-          面向中文母语学习者的英语、韩语、日语入门教程。每门语言 4 节课，覆盖发音、词汇、句型、语法四大模块。
+          面向中文母语学习者的英语、韩语、日语入门教程，以发音、词汇、句型、语法四大模块为主，循序渐进入门。
         </p>
         <div class="site-hero-stats">
           <div class="shs-item"><span class="shs-num">3</span><span class="shs-label">门语言</span></div>
           <div class="shs-item"><span class="shs-num">4</span><span class="shs-label">大模块</span></div>
-          <div class="shs-item"><span class="shs-num">12</span><span class="shs-label">节课程</span></div>
+          <div class="shs-item"><span class="shs-num">{{ totalLessons }}</span><span class="shs-label">节课程</span></div>
         </div>
       </div>
     </section>
@@ -33,7 +36,7 @@ import { examList } from '../data/exams'
         <div class="lang-name">{{ l.name }}</div>
         <div class="lang-desc">{{ l.desc }}</div>
         <div class="lang-foot">
-          <span class="lang-count">4 节课 · 4 大模块</span>
+          <span class="lang-count">{{ lessonCount(code) }} 节课 · 4 大模块</span>
           <span class="lang-go">开始学习 →</span>
         </div>
       </router-link>

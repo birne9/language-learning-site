@@ -778,6 +778,37 @@ a { color: inherit; text-decoration: none; }
 /* 语法卡说明 */
 .grammar-explanation { color: var(--text-2); font-size: 14px; margin-bottom: 10px; }
 
+/* 可勾选学习清单 */
+.checklist-card { padding: 4px 20px; }
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-item input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 4px 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.checklist-label { display: block; font-weight: 700; line-height: 1.55; }
+.checklist-detail { display: block; color: var(--text-2); font-size: 14px; line-height: 1.65; margin-top: 3px; }
+.checklist-item.checked .checklist-label,
+.checklist-item.checked .checklist-detail {
+  color: var(--text-3);
+  text-decoration: line-through;
+}
+@media (max-width: 640px) {
+  .checklist-card { padding: 4px 16px; }
+  .checklist-item { gap: 10px; }
+}
+
 /* 首页渐变主题横幅 */
 .site-hero {
   position: relative;

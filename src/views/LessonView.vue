@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { languages, modules, findLesson } from '../data'
 import AudioButton from '../components/AudioButton.vue'
@@ -19,12 +19,37 @@ const idx = computed(() => found.value.index)
 const list = computed(() => found.value.list)
 const prev = computed(() => (idx.value > 0 ? list.value[idx.value - 1] : null))
 const next = computed(() => (idx.value < list.value.length - 1 ? list.value[idx.value + 1] : null))
+const checklistState = ref({})
+
+watch(
+  () => route.params.lessonId,
+  (lessonId) => {
+    try {
+      checklistState.value = JSON.parse(localStorage.getItem(`lesson-checklist:${lessonId}`)) || {}
+    } catch {
+      checklistState.value = {}
+    }
+  },
+  { immediate: true },
+)
 
 // 学习进度：当前课序号 / 总课数，用于顶部进度条
 const progressPct = computed(() => {
   const total = list.value.length
   return total ? Math.round(((idx.value + 1) / total) * 100) + '%' : '0%'
 })
+
+function checklistItemKey(sectionIndex, itemIndex) {
+  return `${sectionIndex}-${itemIndex}`
+}
+
+function toggleChecklistItem(sectionIndex, itemIndex) {
+  const key = checklistItemKey(sectionIndex, itemIndex)
+  checklistState.value = { ...checklistState.value, [key]: !checklistState.value[key] }
+  try {
+    localStorage.setItem(`lesson-checklist:${route.params.lessonId}`, JSON.stringify(checklistState.value))
+  } catch {}
+}
 
 // 读音文本：音标卡（/θ/ 形式）读示范词，其余卡片读原文
 function speakText(item) {
@@ -59,7 +84,7 @@ function speakCell(cell, speechLang) {
       <div class="lesson-head-inner">
         <div class="lesson-head-top">
           <span class="tag">{{ mod.name }}</span>
-          <span class="lesson-meta">约 {{ lesson.minutes }} 分钟 · 第 {{ idx + 1 }}/{{ list.length }} 课</span>
+          <span class="lesson-meta">{{ lesson.duration || '约 ' + lesson.minutes + ' 分钟' }} · 第 {{ idx + 1 }}/{{ list.length }} 课</span>
         </div>
         <h1 class="lesson-title-main">{{ lesson.title }}</h1>
         <p class="lesson-subtitle">{{ lesson.subtitle }}</p>
@@ -143,6 +168,26 @@ function speakCell(cell, speechLang) {
               {{ ex.text }}<span class="cn"> · {{ ex.cn }}</span>
             </div>
           </div>
+        </div>
+
+        <!-- 可勾选学习清单 -->
+        <div v-else-if="s.type === 'checklist'" class="checklist-card card">
+          <label
+            v-for="(item, i) in s.items"
+            :key="i"
+            class="checklist-item"
+            :class="{ checked: checklistState[checklistItemKey(si, i)] }"
+          >
+            <input
+              type="checkbox"
+              :checked="checklistState[checklistItemKey(si, i)]"
+              @change="toggleChecklistItem(si, i)"
+            />
+            <span>
+              <span class="checklist-label">{{ item.label }}</span>
+              <span class="checklist-detail">{{ item.text }}</span>
+            </span>
+          </label>
         </div>
 
         <!-- 音图：五十音图 / 字母表 / 音标表（每格可点击发音） -->

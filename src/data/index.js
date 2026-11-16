@@ -8,7 +8,7 @@ export const languages = {
     color: '#2563eb',
     speechLang: 'en-US',
     tagline: '从音标到基础时态',
-    desc: '国际音标、核心词汇、高频句型与基础时态，4 节课带你入门英语。',
+    desc: '国际音标、核心词汇、高频句型与基础时态，另附新概念一前 10 课学习清单。',
   },
   ko: {
     code: 'ko',

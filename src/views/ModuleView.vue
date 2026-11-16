@@ -60,7 +60,7 @@ const list = computed(() => moduleLessons(code.value, route.params.module))
           <div class="lesson-title">{{ l.title }}</div>
           <div class="lesson-sub">{{ l.subtitle }}</div>
           <div class="lesson-meta">
-            <span class="lesson-duration">约 {{ l.minutes }} 分钟</span>
+            <span class="lesson-duration">{{ l.duration || '约 ' + l.minutes + ' 分钟' }}</span>
             <span class="lesson-cta">开始学习 →</span>
           </div>
         </div>
