@@ -917,6 +917,10 @@ a { color: inherit; text-decoration: none; }
   .module-card::before,
   .lang-card::before { transform: scaleX(1); }
   .lesson-card::before { transform: scaleY(1); }
+  /* 触屏点击会粘住 :hover，去掉点文字瞬间出现的背景色 */
+  .nav-item:hover { background: transparent; }
+  .chart-cell:hover { background: transparent; }
+  .audio-btn:hover { background: var(--card); }
 }
 
 /* ≤640px：重排顶栏——品牌独占一行，导航变成可横向滑动的一行，主题按钮靠右 */
@@ -961,3 +965,138 @@ a { color: inherit; text-decoration: none; }
   .module-grid, .lang-grid { gap: 12px; }
   .chart-group-cells { grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); }
 }
+
+/* ============================================================
+   考级与证书（首页入口区 + 考级介绍页）
+   ============================================================ */
+
+/* 首页考级入口区：复用语言卡片样式，仅收紧与下一板块的间距 */
+.exam-grid { padding-top: 18px; padding-bottom: 4px; }
+
+/* 考级页头部横幅内的关键信息标签 */
+.exam-hero-facts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+.exam-fact {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 9px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+}
+.ef-label { font-size: 12px; opacity: 0.82; }
+.ef-value { font-size: 14px; font-weight: 700; }
+
+/* 等级划分网格 */
+.exam-level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 18px 0 8px;
+}
+@media (max-width: 900px) { .exam-level-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .exam-level-grid { grid-template-columns: 1fr; } }
+.exam-level-card { padding: 16px 18px; }
+.elc-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.elc-name { font-size: 20px; font-weight: 800; color: var(--accent); }
+.elc-sub { font-size: 12.5px; color: var(--text-3); font-weight: 600; }
+.elc-desc { font-size: 13px; color: var(--text-2); margin-top: 6px; line-height: 1.6; }
+.exam-note {
+  font-size: 13px;
+  color: var(--text-2);
+  background: var(--bg-soft);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 10px 0 0;
+  line-height: 1.7;
+}
+
+/* 考试内容网格 */
+.exam-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 18px 0 8px;
+}
+@media (max-width: 640px) { .exam-section-grid { grid-template-columns: 1fr; } }
+.exam-section-card { padding: 16px 18px; }
+.esc-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.esc-name { font-size: 15.5px; font-weight: 700; }
+.esc-desc { font-size: 13px; color: var(--text-2); margin-top: 8px; line-height: 1.6; }
+
+/* 适合人群 + 备考建议：桌面两栏，窄屏一栏 */
+.exam-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+@media (max-width: 900px) { .exam-two-col { grid-template-columns: 1fr; } }
+.exam-audience-card { padding: 8px 18px; margin-top: 18px; }
+.audience-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 0;
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.65;
+  border-bottom: 1px solid var(--border);
+}
+.audience-item:last-child { border-bottom: none; }
+.audience-dot {
+  flex: none;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 8px;
+}
+.exam-tips-card { padding: 8px 18px; margin-top: 18px; }
+.tip-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.tip-item:last-child { border-bottom: none; }
+.tip-num {
+  flex: none;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.tip-text { font-size: 13.5px; color: var(--text-2); line-height: 1.65; }
+
+/* 报名指引卡 */
+.signup-card { padding: 22px 24px; margin-top: 18px; }
+.signup-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 700;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.signup-link:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16, 24, 40, 0.18); }
+.signup-arrow { font-size: 16px; }
+.signup-meta { display: grid; gap: 8px; margin-top: 16px; }
+.signup-row { display: flex; gap: 14px; font-size: 13.5px; line-height: 1.7; }
+.sr-label { flex: none; width: 60px; color: var(--text-3); font-weight: 600; }
+.sr-value { color: var(--text-2); word-break: break-all; }
+.signup-note { font-size: 12.5px; color: var(--text-3); margin: 14px 0 0; line-height: 1.7; }
+
+/* 底部衔接：回语言课程 / 回首页 */
+.exam-back {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+  padding: 24px 0 40px;
+}
+.exam-back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 700; color: var(--accent);
+}
+.exam-back-link:hover .start-arrow { transform: translateX(4px); }
+.exam-back-home { font-size: 13px; color: var(--text-3); }
+.exam-back-home:hover { color: var(--accent); }
+

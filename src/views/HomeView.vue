@@ -1,5 +1,6 @@
 <script setup>
 import { languages, modules } from '../data'
+import { examList } from '../data/exams'
 </script>
 
 <template>
@@ -34,6 +35,31 @@ import { languages, modules } from '../data'
         <div class="lang-foot">
           <span class="lang-count">4 节课 · 4 大模块</span>
           <span class="lang-go">开始学习 →</span>
+        </div>
+      </router-link>
+    </section>
+
+    <section class="page-head">
+      <h2 class="page-title">考级与证书</h2>
+      <p class="page-sub">
+        学完入门课程后，可以挑战对应语言的权威考试：英语雅思、韩语 TOPIK、日语 JLPT。先了解等级划分、备考路径与报名方式。
+      </p>
+    </section>
+
+    <section class="lang-grid exam-grid">
+      <router-link
+        v-for="e in examList"
+        :key="e.id"
+        :to="`/exams/${e.id}`"
+        class="lang-card card"
+        :style="{ '--lc': languages[e.lang].color }"
+      >
+        <div class="lang-native">{{ e.native }}</div>
+        <div class="lang-name">{{ e.name }}考级</div>
+        <div class="lang-desc">{{ e.tagline }}</div>
+        <div class="lang-foot">
+          <span class="lang-count">{{ e.levelRange }}</span>
+          <span class="lang-go">了解考级 →</span>
         </div>
       </router-link>
     </section>
