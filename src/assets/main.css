@@ -778,37 +778,6 @@ a { color: inherit; text-decoration: none; }
 /* 语法卡说明 */
 .grammar-explanation { color: var(--text-2); font-size: 14px; margin-bottom: 10px; }
 
-/* 可勾选学习清单 */
-.checklist-card { padding: 4px 20px; }
-.checklist-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 13px 0;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-}
-.checklist-item:last-child { border-bottom: none; }
-.checklist-item input {
-  flex: none;
-  width: 18px;
-  height: 18px;
-  margin: 4px 0 0;
-  accent-color: var(--accent);
-  cursor: pointer;
-}
-.checklist-label { display: block; font-weight: 700; line-height: 1.55; }
-.checklist-detail { display: block; color: var(--text-2); font-size: 14px; line-height: 1.65; margin-top: 3px; }
-.checklist-item.checked .checklist-label,
-.checklist-item.checked .checklist-detail {
-  color: var(--text-3);
-  text-decoration: line-through;
-}
-@media (max-width: 640px) {
-  .checklist-card { padding: 4px 16px; }
-  .checklist-item { gap: 10px; }
-}
-
 /* 首页渐变主题横幅 */
 .site-hero {
   position: relative;
@@ -1130,4 +1099,110 @@ a { color: inherit; text-decoration: none; }
 .exam-back-link:hover .start-arrow { transform: translateX(4px); }
 .exam-back-home { font-size: 13px; color: var(--text-3); }
 .exam-back-home:hover { color: var(--accent); }
+
+/* 新概念一：全册知识框架 */
+.nce1-hero-facts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+.nce1-stage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 18px 0 8px;
+}
+.nce1-stage-card { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 16px; padding: 20px; }
+.nce1-stage-no {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 800;
+}
+.nce1-stage-title { margin: 10px 0 7px; font-size: 18px; line-height: 1.35; }
+.nce1-stage-focus { margin: 0; color: var(--text-2); font-size: 13.5px; line-height: 1.7; }
+.nce1-stage-topics, .nce1-stage-output { margin: 12px 0 0; font-size: 13px; line-height: 1.65; }
+.nce1-stage-topics { color: var(--text-2); }
+.nce1-stage-output { padding-top: 12px; border-top: 1px solid var(--border); color: var(--text-2); }
+.nce1-stage-topics strong, .nce1-stage-output strong { color: var(--accent); margin-right: 8px; font-size: 12px; }
+
+.nce1-vocab-rule {
+  display: flex; align-items: center; gap: 16px 22px; flex-wrap: wrap;
+  margin-top: 18px; padding: 16px 20px;
+}
+.nce1-vocab-rule > strong { font-size: 14px; }
+.nce1-vocab-rule > p { flex: 1 1 100%; margin: 0; color: var(--text-2); font-size: 13px; }
+.nce1-vocab-flow { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.nce1-vocab-flow span { padding: 4px 10px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); font-size: 12.5px; font-weight: 700; }
+.nce1-vocab-flow b { color: var(--text-3); font-size: 12px; }
+.nce1-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px 0 8px;
+}
+.nce1-topic-card { position: relative; padding: 18px; }
+.nce1-topic-num { position: absolute; top: 16px; right: 18px; color: var(--text-3); font-size: 12px; font-weight: 700; }
+.nce1-topic-card h3 { margin: 0 28px 12px 0; font-size: 15.5px; }
+.nce1-topic-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.nce1-topic-items span { padding: 3px 8px; border-radius: 7px; background: var(--bg-soft); color: var(--text-2); font-size: 12px; }
+
+.nce1-grammar-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 18px 0 8px; }
+.nce1-grammar-card { padding: 18px 20px; }
+.nce1-grammar-card h3 { margin: 0 0 10px; color: var(--accent); font-size: 16px; }
+.nce1-grammar-card ul { margin: 0; padding: 0; list-style: none; }
+.nce1-grammar-card li { position: relative; padding: 5px 0 5px 15px; color: var(--text-2); font-size: 13.5px; }
+.nce1-grammar-card li::before { content: ''; position: absolute; left: 1px; top: 15px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); }
+.nce1-subtitle { margin: 24px 0 12px; font-size: 18px; }
+.nce1-tense-wrap { overflow-x: auto; }
+.nce1-tense-table { width: 100%; min-width: 650px; border-collapse: collapse; font-size: 13.5px; }
+.nce1-tense-table th, .nce1-tense-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); text-align: left; }
+.nce1-tense-table th { background: var(--bg-soft); color: var(--text-2); font-size: 12.5px; }
+.nce1-tense-table td:first-child { color: var(--accent); font-weight: 700; white-space: nowrap; }
+.nce1-tense-table td:nth-child(2) { color: var(--text); }
+.nce1-tense-table td:last-child { color: var(--text-2); }
+.nce1-tense-table tr:last-child td { border-bottom: none; }
+.nce1-table-note { margin: 10px 0 0; color: var(--text-3); font-size: 12.5px; }
+
+.nce1-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 18px 0 0; }
+.nce1-use-card { padding: 20px; }
+.nce1-use-card h3, .nce1-sound-card h3 { margin: 0 0 14px; font-size: 17px; }
+.nce1-function-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.nce1-function-cloud span { padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; color: var(--text-2); font-size: 12.5px; }
+.nce1-skill-list { display: grid; gap: 11px; }
+.nce1-skill-item { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 10px; align-items: start; }
+.nce1-skill-item strong { color: var(--accent); font-size: 13px; }
+.nce1-skill-item span { color: var(--text-2); font-size: 13px; }
+.nce1-sound-card { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; margin-top: 16px; padding: 20px; }
+.nce1-sound-card h3 { margin-bottom: 6px; }
+.nce1-sound-card p { margin: 0; color: var(--text-2); font-size: 13px; }
+.nce1-sound-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.nce1-sound-steps span { display: flex; align-items: center; gap: 8px; color: var(--text-2); font-size: 12.5px; }
+.nce1-sound-steps b { width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; }
+
+.nce1-mastery { margin: 28px 0 40px; padding: 0 24px 24px; background: linear-gradient(135deg, var(--accent-soft), var(--card) 60%); }
+.nce1-mastery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; padding-top: 12px; }
+.nce1-mastery-item { display: flex; align-items: flex-start; gap: 10px; }
+.nce1-mastery-item > span { flex: none; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.nce1-mastery-item p { margin: 0; color: var(--text-2); font-size: 13.5px; }
+.nce1-ielts-note { margin: 22px 0 0; padding: 14px 16px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; background: var(--card); color: var(--text-2); font-size: 13.5px; }
+.nce1-ielts-note strong { color: var(--text); }
+
+@media (max-width: 900px) {
+  .nce1-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nce1-two-col, .nce1-sound-card { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .nce1-stage-grid, .nce1-grammar-grid, .nce1-mastery-grid { grid-template-columns: 1fr; }
+  .nce1-stage-card { padding: 18px; }
+  .nce1-mastery { padding: 0 18px 20px; }
+}
+@media (max-width: 520px) {
+  .nce1-topic-grid { grid-template-columns: 1fr; }
+  .nce1-hero-facts { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .nce1-stage-card { grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 16px; }
+  .nce1-stage-no { width: 34px; height: 34px; border-radius: 10px; font-size: 13px; }
+  .nce1-vocab-rule { align-items: flex-start; }
+  .nce1-vocab-flow { gap: 6px; }
+  .nce1-sound-steps { grid-template-columns: 1fr; }
+  .nce1-tense-table th, .nce1-tense-table td { padding: 10px 14px; }
+}
 

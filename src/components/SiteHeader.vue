@@ -51,8 +51,8 @@ onBeforeUnmount(() => {
         <span class="brand-text">三语学习站</span>
       </router-link>
       <div class="header-right">
-        <nav class="header-nav">
-          <router-link to="/" class="nav-item" :class="{ active: !route.params.lang }">首页</router-link>
+        <nav class="header-nav" aria-label="主导航">
+          <router-link to="/" class="nav-item" :class="{ active: route.name === 'home' }">首页</router-link>
           <router-link
             v-for="(l, code) in languages"
             :key="code"
@@ -62,6 +62,7 @@ onBeforeUnmount(() => {
           >
             {{ l.name }}
           </router-link>
+          <router-link to="/nce1" class="nav-item" :class="{ active: route.name === 'nce1' }">新概念一</router-link>
         </nav>
         <button
           class="theme-toggle"

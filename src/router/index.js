@@ -21,6 +21,11 @@ const router = createRouter({
       component: () => import('../views/ExamView.vue'),
     },
     {
+      path: '/nce1',
+      name: 'nce1',
+      component: () => import('../views/Nce1View.vue'),
+    },
+    {
       path: '/:lang',
       name: 'language',
       component: () => import('../views/LanguageHomeView.vue'),
