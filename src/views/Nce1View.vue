@@ -1,4 +1,10 @@
 <script setup>
+import { computed, ref } from 'vue'
+import { nce1Units } from '../data/nce1Lessons'
+
+const selectedStage = ref(1)
+const filteredUnits = computed(() => nce1Units.filter((unit) => unit.stage === selectedStage.value))
+
 const stages = [
   {
     range: 'Lesson 1–30',
@@ -142,6 +148,47 @@ const mastery = [
           <div class="exam-fact"><span class="ef-label">整体路线</span><span class="ef-value">6 个阶段</span></div>
           <div class="exam-fact"><span class="ef-label">综合能力</span><span class="ef-value">听说读写</span></div>
         </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="nce1-directory">
+      <div class="page-head">
+        <h2 id="nce1-directory" class="page-title">144 课学习目录</h2>
+        <p class="page-sub">每两课为一组：奇数课进行场景输入，偶数课进行句型操练。选择阶段后逐课学习。</p>
+      </div>
+      <div class="nce1-directory-tabs" role="group" aria-label="按学习阶段筛选课程">
+        <button
+          v-for="(stage, index) in stages"
+          :key="stage.range"
+          type="button"
+          :class="{ active: selectedStage === index + 1 }"
+          :aria-pressed="selectedStage === index + 1"
+          @click="selectedStage = index + 1"
+        >
+          <span>阶段 {{ index + 1 }}</span>
+          <small>{{ stage.range }}</small>
+        </button>
+      </div>
+      <p class="nce1-directory-count">本阶段 {{ filteredUnits.length }} 组 · {{ filteredUnits.length * 2 }} 课</p>
+      <div class="nce1-unit-grid">
+        <article v-for="unit in filteredUnits" :key="unit.id" class="nce1-unit-card card">
+          <div class="nce1-unit-head">
+            <span class="tag">Lesson {{ unit.startLesson }}–{{ unit.startLesson + 1 }}</span>
+            <span class="nce1-unit-no">{{ String(unit.id).padStart(2, '0') }}</span>
+          </div>
+          <h3>{{ unit.titles[0] }}</h3>
+          <p class="nce1-unit-pair">{{ unit.titles[1] }}</p>
+          <p class="nce1-unit-theme">{{ unit.theme }}</p>
+          <p class="nce1-unit-grammar">{{ unit.grammar }}</p>
+          <div class="nce1-unit-links">
+            <router-link :to="`/nce1/${unit.startLesson}`">
+              <span>Lesson {{ unit.startLesson }}</span>场景输入 →
+            </router-link>
+            <router-link :to="`/nce1/${unit.startLesson + 1}`">
+              <span>Lesson {{ unit.startLesson + 1 }}</span>句型操练 →
+            </router-link>
+          </div>
+        </article>
       </div>
     </section>
 

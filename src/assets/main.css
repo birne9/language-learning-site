@@ -1186,16 +1186,73 @@ a { color: inherit; text-decoration: none; }
 .nce1-ielts-note { margin: 22px 0 0; padding: 14px 16px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; background: var(--card); color: var(--text-2); font-size: 13.5px; }
 .nce1-ielts-note strong { color: var(--text); }
 
+.nce1-directory-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  padding-top: 18px;
+}
+.nce1-directory-tabs button {
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--text-2);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+.nce1-directory-tabs button:hover { border-color: var(--accent); color: var(--accent); }
+.nce1-directory-tabs button.active { border-color: var(--accent); background: var(--accent); color: #fff; }
+.nce1-directory-tabs small { display: block; margin-top: 3px; font-size: 10.5px; font-weight: 500; opacity: 0.78; }
+.nce1-directory-count { margin: 14px 0 0; color: var(--text-3); font-size: 12.5px; }
+.nce1-unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 14px 0 8px;
+}
+.nce1-unit-card { display: flex; flex-direction: column; min-width: 0; padding: 20px; }
+.nce1-unit-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.nce1-unit-no { color: var(--text-3); font-size: 12px; font-weight: 800; }
+.nce1-unit-card h3 { margin: 13px 0 4px; font-size: 18px; line-height: 1.4; overflow-wrap: anywhere; }
+.nce1-unit-pair { margin: 0; color: var(--accent); font-size: 13.5px; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
+.nce1-unit-theme { margin: 12px 0 0; color: var(--text); font-size: 13.5px; }
+.nce1-unit-grammar { flex: 1; margin: 5px 0 0; color: var(--text-2); font-size: 12.5px; line-height: 1.65; }
+.nce1-unit-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.nce1-unit-links a {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg-soft);
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 700;
+  transition: border-color 0.16s ease, transform 0.16s ease;
+}
+.nce1-unit-links a:hover { border-color: var(--accent); transform: translateY(-1px); }
+.nce1-unit-links span { display: block; margin-bottom: 2px; color: var(--text-3); font-size: 10.5px; font-weight: 600; }
+.nce1-lesson-list { padding: 6px 20px; }
+.nce1-grammar-focus { margin-bottom: 12px; color: var(--accent); font-weight: 700; }
+.nce1-review-note strong { color: var(--text); }
+
 @media (max-width: 900px) {
+  .nce1-directory-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .nce1-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .nce1-two-col, .nce1-sound-card { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
-  .nce1-stage-grid, .nce1-grammar-grid, .nce1-mastery-grid { grid-template-columns: 1fr; }
+  .nce1-unit-grid, .nce1-stage-grid, .nce1-grammar-grid, .nce1-mastery-grid { grid-template-columns: 1fr; }
   .nce1-stage-card { padding: 18px; }
   .nce1-mastery { padding: 0 18px 20px; }
 }
 @media (max-width: 520px) {
+  .nce1-directory-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nce1-unit-card { padding: 16px; }
   .nce1-topic-grid { grid-template-columns: 1fr; }
   .nce1-hero-facts { display: grid; grid-template-columns: repeat(2, 1fr); }
   .nce1-stage-card { grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 16px; }

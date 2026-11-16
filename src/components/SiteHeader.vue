@@ -62,7 +62,7 @@ onBeforeUnmount(() => {
           >
             {{ l.name }}
           </router-link>
-          <router-link to="/nce1" class="nav-item" :class="{ active: route.name === 'nce1' }">新概念一</router-link>
+          <router-link to="/nce1" class="nav-item" :class="{ active: route.path.startsWith('/nce1') }">新概念一</router-link>
         </nav>
         <button
           class="theme-toggle"
