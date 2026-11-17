@@ -32,6 +32,11 @@ const router = createRouter({
       component: () => import('../views/Nce1LessonView.vue'),
     },
     {
+      path: '/n2',
+      name: 'n2-roadmap',
+      component: () => import('../views/N2RoadmapView.vue'),
+    },
+    {
       path: '/:lang',
       name: 'language',
       component: () => import('../views/LanguageHomeView.vue'),
