@@ -64,6 +64,30 @@ const stages = [
   },
 ]
 
+const videosByStage = [
+  [
+    { label: '标日初级第 1～48 课', url: 'https://www.bilibili.com/video/BV1eJ411b7yF/' },
+    { label: '圆圆：初级上册语法、课文与单词', url: 'https://www.bilibili.com/list/ml1596480162' },
+  ],
+  [
+    { label: '标日初级第 1～48 课（学习第 25～48 课）', url: 'https://www.bilibili.com/video/BV1eJ411b7yF/' },
+  ],
+  [
+    { label: '出口仁语法合集（选看 N3 部分）', url: 'https://www.bilibili.com/list/ml2613191510' },
+  ],
+  [
+    { label: '标日中级下册精讲－N2（B 站课堂·付费）', url: 'https://m.bilibili.com/cheese/play/ss8288' },
+    { label: '出口仁语法合集（选看 N2 部分）', url: 'https://www.bilibili.com/list/ml2613191510' },
+  ],
+  [
+    { label: '出口仁 N2 语法补弱', url: 'https://www.bilibili.com/list/ml2613191510' },
+    { label: 'N2 考前冲刺与听力精听', url: 'https://www.bilibili.com/list/3493116195638034' },
+  ],
+  [
+    { label: 'N2 考前冲刺与听力精听', url: 'https://www.bilibili.com/list/3493116195638034' },
+  ],
+]
+
 const dailyPlans = [
   {
     title: 'N5～N4 打基础',
@@ -195,6 +219,20 @@ const checkpoints = [
               <p class="n2-stage-description">{{ stage.description }}</p>
               <div class="n2-stage-tasks">
                 <span v-for="task in stage.tasks" :key="task">{{ task }}</span>
+              </div>
+              <div class="n2-stage-videos">
+                <strong>配套视频</strong>
+                <div class="n2-stage-video-links">
+                  <a
+                    v-for="video in videosByStage[index]"
+                    :key="video.label"
+                    :href="video.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{ video.label }}<span aria-hidden="true">↗</span>
+                  </a>
+                </div>
               </div>
               <p class="n2-stage-milestone"><strong>阶段验收</strong>{{ stage.milestone }}</p>
             </article>

@@ -1320,6 +1320,24 @@ a { color: inherit; text-decoration: none; }
 .n2-stage-tasks span { padding: 4px 9px; border-radius: 7px; background: var(--bg-soft); color: var(--text-2); font-size: 12px; }
 .n2-stage-milestone { margin: 15px 0 0; padding-top: 13px; border-top: 1px solid var(--border); color: var(--text-2); font-size: 13px; }
 .n2-stage-milestone strong { margin-right: 9px; color: var(--accent); font-size: 12px; }
+.n2-stage-videos { display: flex; align-items: flex-start; gap: 10px; margin-top: 14px; }
+.n2-stage-videos > strong { flex: none; margin-top: 5px; color: var(--text); font-size: 12px; }
+.n2-stage-video-links { display: flex; flex-wrap: wrap; gap: 7px; }
+.n2-stage-video-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+.n2-stage-video-links a:hover { border-color: var(--accent); background: var(--accent-soft); }
+.n2-stage-video-links a span { flex: none; }
 
 .n2-daily-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 18px 0 8px; }
 .n2-daily-card { padding: 20px; }
@@ -1363,6 +1381,8 @@ a { color: inherit; text-decoration: none; }
   .n2-stage-card { padding: 17px; }
   .n2-material-grid { grid-template-columns: 1fr; }
   .n2-checkpoint { padding: 0 18px 10px; }
+  .n2-stage-videos { flex-direction: column; gap: 6px; }
+  .n2-stage-videos > strong { margin-top: 0; }
   .n2-stage-milestone strong { display: block; margin-bottom: 4px; }
 }
 
