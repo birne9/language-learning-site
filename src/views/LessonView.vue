@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { languages, modules, findLesson } from '../data'
 import AudioButton from '../components/AudioButton.vue'
+import KanaPracticePad from '../components/KanaPracticePad.vue'
 import KanaStrokeGuide from '../components/KanaStrokeGuide.vue'
 import LessonVideo from '../components/LessonVideo.vue'
 
@@ -221,6 +222,7 @@ function handleMatrixCell(cell, section, speechLang) {
           </div>
           </div>
           <KanaStrokeGuide v-if="s.writing" :cell="selectedKana || s.rows[0].cells[0]" />
+          <KanaPracticePad v-if="s.writing" :cell="selectedKana || s.rows[0].cells[0]" />
         </div>
       </section>
     </div>
