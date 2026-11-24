@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import { languages, modules, findLesson } from '../data'
 import AudioButton from '../components/AudioButton.vue'
 import KanaPracticePad from '../components/KanaPracticePad.vue'
+import KanaProficiencyTest from '../components/KanaProficiencyTest.vue'
 import KanaStrokeGuide from '../components/KanaStrokeGuide.vue'
 import LessonVideo from '../components/LessonVideo.vue'
 
@@ -122,6 +123,9 @@ function handleMatrixCell(cell, section, speechLang) {
             </div>
           </div>
         </div>
+
+        <!-- 五十音达标测试 -->
+        <KanaProficiencyTest v-else-if="s.type === 'kanaTest'" :items="s.items" />
 
         <!-- 词汇卡 -->
         <div v-else-if="s.type === 'word'" class="word-grid">

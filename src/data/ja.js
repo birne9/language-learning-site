@@ -430,6 +430,7 @@ const japaneseData = {
 }
 
 const gojuonChart = japaneseData.pronunciation[0].sections[0]
+const kanaTestItems = gojuonChart.rows.flatMap((row) => row.cells).filter(Boolean)
 
 japaneseData.pronunciation.push({
   id: 'ja-p2',
@@ -454,6 +455,24 @@ japaneseData.pronunciation.push({
         '练习时注意笔画方向、收笔和字形在方格中的比例，不要只追求写得快。',
         '完成平假名后再练习片假名，并将容易混淆的字形放在一起比较，如 シ 与 ツ、ソ 与 ン。',
       ],
+    },
+  ],
+})
+
+japaneseData.pronunciation.push({
+  id: 'ja-p3',
+  title: '五十音达标测试：每日一测',
+  subtitle: '随机认读 · 听音辨字 · 成绩记录',
+  minutes: 5,
+  intro: [
+    '每天随机测一遍，检查自己是否真的记住五十音。每日复习为 20 题，完整测试为 46 题，两种题型混合出现。',
+    '正确率达到 90% 为本次达标，建议连续 3 天稳定通过。测试成绩只保存在当前浏览器，不上传任何数据。',
+  ],
+  sections: [
+    {
+      type: 'kanaTest',
+      title: '五十音认读与听辨测试',
+      items: kanaTestItems,
     },
   ],
 })

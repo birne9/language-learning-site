@@ -3,6 +3,7 @@
 const props = defineProps({
   text: { type: String, required: true },
   lang: { type: String, default: 'en-US' },
+  label: { type: String, default: '' },
 })
 
 function speak() {
@@ -17,7 +18,13 @@ function speak() {
 </script>
 
 <template>
-  <button class="audio-btn" type="button" :title="`朗读：${text}`" @click="speak">
+  <button
+    class="audio-btn"
+    type="button"
+    :title="label || `朗读：${text}`"
+    :aria-label="label || `朗读：${text}`"
+    @click="speak"
+  >
     <svg
       viewBox="0 0 24 24"
       fill="none"
