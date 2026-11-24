@@ -1,8 +1,9 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { languages, modules, findLesson } from '../data'
 import AudioButton from '../components/AudioButton.vue'
+import KanaStrokeGuide from '../components/KanaStrokeGuide.vue'
 import LessonVideo from '../components/LessonVideo.vue'
 
 const route = useRoute()
@@ -19,6 +20,7 @@ const idx = computed(() => found.value.index)
 const list = computed(() => found.value.list)
 const prev = computed(() => (idx.value > 0 ? list.value[idx.value - 1] : null))
 const next = computed(() => (idx.value < list.value.length - 1 ? list.value[idx.value + 1] : null))
+const selectedKana = ref(null)
 
 // 学习进度：当前课序号 / 总课数，用于顶部进度条
 const progressPct = computed(() => {
@@ -42,6 +44,11 @@ function speakCell(cell, speechLang) {
   u.lang = speechLang
   u.rate = 0.85
   synth.speak(u)
+}
+
+function handleMatrixCell(cell, section, speechLang) {
+  speakCell(cell, speechLang)
+  if (section.writing) selectedKana.value = cell
 }
 </script>
 
@@ -146,7 +153,8 @@ function speakCell(cell, speechLang) {
         </div>
 
         <!-- 音图：五十音图 / 字母表 / 音标表（每格可点击发音） -->
-        <div v-else-if="s.type === 'chart'" class="chart-wrap card">
+        <div v-else-if="s.type === 'chart'" class="chart-section">
+          <div class="chart-wrap card">
           <!-- 矩阵模式：带列头（日语五十音图） -->
           <table v-if="s.cols" class="chart-table">
             <thead>
@@ -162,8 +170,10 @@ function speakCell(cell, speechLang) {
                   <button
                     v-if="row.cells[0]"
                     class="chart-cell"
+                    :class="{ 'chart-cell-writing-active': s.writing && (selectedKana || s.rows[0].cells[0]).main === row.cells[0].main }"
                     type="button"
-                    @click="speakCell(row.cells[0], lang.speechLang)"
+                    :aria-pressed="s.writing ? (selectedKana || s.rows[0].cells[0]).main === row.cells[0].main : undefined"
+                    @click="handleMatrixCell(row.cells[0], s, lang.speechLang)"
                   >
                     <span class="cc-main">{{ row.cells[0].main }}</span>
                     <span v-if="row.cells[0].sub" class="cc-sub">{{ row.cells[0].sub }}</span>
@@ -175,8 +185,10 @@ function speakCell(cell, speechLang) {
                     <button
                       v-if="cell"
                       class="chart-cell"
+                      :class="{ 'chart-cell-writing-active': s.writing && (selectedKana || s.rows[0].cells[0]).main === cell.main }"
                       type="button"
-                      @click="speakCell(cell, lang.speechLang)"
+                      :aria-pressed="s.writing ? (selectedKana || s.rows[0].cells[0]).main === cell.main : undefined"
+                      @click="handleMatrixCell(cell, s, lang.speechLang)"
                     >
                       <span class="cc-main">{{ cell.main }}</span>
                       <span v-if="cell.sub" class="cc-sub">{{ cell.sub }}</span>
@@ -207,6 +219,8 @@ function speakCell(cell, speechLang) {
               </div>
             </div>
           </div>
+          </div>
+          <KanaStrokeGuide v-if="s.writing" :cell="selectedKana || s.rows[0].cells[0]" />
         </div>
       </section>
     </div>
