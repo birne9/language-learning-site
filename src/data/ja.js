@@ -5,6 +5,19 @@
 //   video: { provider: 'youtube',  id: 'dQw4w9WgXcQ' }            // YouTube 视频 ID
 // 有 video 时，详情页顶部会显示视频播放器并隐藏 lesson.image 封面。
 
+function createKanaDrill(row, kana) {
+  const [a, i, u, e, o] = kana
+  return {
+    row,
+    lines: [
+      `${a}${e}${i}　${i}${e}${a}`,
+      `${a}${o}${u}　${u}${o}${a}`,
+      `${a}${e}${i}${u}${e}${o}${a}${o}`,
+      `${a}${i}${u}${e}${o}`,
+    ],
+  }
+}
+
 const japaneseData = {
   pronunciation: [
     {
@@ -166,11 +179,53 @@ const japaneseData = {
           ],
         },
         {
+          type: 'kanaDrill',
+          title: '五十音口型操：按行练发音',
+          items: [
+            createKanaDrill('あ行', 'あいうえお'),
+            createKanaDrill('か行', 'かきくけこ'),
+            createKanaDrill('さ行', 'さしすせそ'),
+            createKanaDrill('た行', 'たちつてと'),
+            createKanaDrill('な行', 'なにぬねの'),
+            createKanaDrill('は行', 'はひふへほ'),
+            createKanaDrill('ま行', 'まみむめも'),
+            {
+              row: 'や行',
+              lines: [
+                'やゆよ　よゆや',
+                'やよゆ　ゆよや',
+                'やゆよやよゆや',
+                'やゆよ',
+              ],
+            },
+            createKanaDrill('ら行', 'らりるれろ'),
+            {
+              row: 'わ行',
+              lines: [
+                'わを　をわ',
+                'わわを　をわわ',
+                'わをわををわ',
+                'わを',
+              ],
+            },
+            {
+              row: 'ん',
+              lines: [
+                'あん　いん　うん',
+                'えん　おん　ん',
+                'あんいんうんえんおん',
+                'んあ　んい　んう　んえ　んお',
+              ],
+            },
+          ],
+        },
+        {
           type: 'text',
           title: '浊音、拗音与学习建议',
           paragraphs: [
             '清音加两点变浊音：か行 → が行（ga gi gu ge go）、さ行 → ざ行（za ji zu ze zo）、た行 → だ行（da ji zu de do）、は行 → ば行（ba bi bu be bo）；加小圆圈变半浊音：ぱ行（pa pi pu pe po）。',
             '拗音是辅音 + や/ゆ/よ 小写组合，如 きゃ kya、しゅ shu、ちょ cho。',
+            '口型操先逐音慢读，确认口型和发音稳定后再连读加速；点击每行右侧按钮可以听示范，也可以录音对比自己的发音。',
             '学习建议：每天默写一行假名，配合单词记忆（如 あい = 爱）。先平假名后片假名，两周内可以拿下一套五十音。',
           ],
         },

@@ -110,6 +110,19 @@ function handleMatrixCell(cell, section, speechLang) {
           </div>
         </div>
 
+        <!-- 五十音口型操：纯假名组合，按行慢读与连读 -->
+        <div v-else-if="s.type === 'kanaDrill'" class="kana-drill-grid">
+          <div v-for="item in s.items" :key="item.row" class="kana-drill-card card">
+            <div class="word-top">
+              <div class="kana-drill-row">{{ item.row }}</div>
+              <AudioButton :text="item.lines.join('、')" :lang="lang.speechLang" />
+            </div>
+            <div class="kana-drill-lines">
+              <div v-for="line in item.lines" :key="line" class="kana-drill-line">{{ line }}</div>
+            </div>
+          </div>
+        </div>
+
         <!-- 词汇卡 -->
         <div v-else-if="s.type === 'word'" class="word-grid">
           <div v-for="(item, i) in s.items" :key="i" class="word-card card">
