@@ -1,11 +1,11 @@
-// 日语课程数据（4 个模块各 1 课）
+// 日语课程数据
 //
 // 每节课可选配一段讲解视频（LessonVideo 组件用 iframe 嵌入，零托管成本）：
 //   video: { provider: 'bilibili', id: 'BV1xx4y1xxx', page: 1 }   // B 站分 P 可省 page（默认 1）
 //   video: { provider: 'youtube',  id: 'dQw4w9WgXcQ' }            // YouTube 视频 ID
 // 有 video 时，详情页顶部会显示视频播放器并隐藏 lesson.image 封面。
 
-export default {
+const japaneseData = {
   pronunciation: [
     {
       id: 'ja-p1',
@@ -17,13 +17,12 @@ export default {
       minutes: 15,
       intro: [
         '日语假名分平假名（ひらがな）和片假名（カタカナ），各 46 个。平假名用于一般书写，片假名用于外来语和拟声词。初学者先拿下平假名五十音图。',
-        '五十音按“五段十行”排列，先背行（每行一个辅音），再背段。点击假名可以听发音，并在下方查看平假名和片假名的笔顺演示。',
+        '五十音按“五段十行”排列，先背行（每行一个辅音），再背段。点击假名可以听发音，书写顺序请继续学习下一课。',
       ],
       sections: [
         {
           type: 'chart',
           title: '五十音图 · 清音（平假名 / 片假名 / 罗马音）',
-          writing: true,
           corner: '假名',
           cols: ['あ段', 'い段', 'う段', 'え段', 'お段'],
           rows: [
@@ -374,3 +373,34 @@ export default {
     },
   ],
 }
+
+const gojuonChart = japaneseData.pronunciation[0].sections[0]
+
+japaneseData.pronunciation.push({
+  id: 'ja-p2',
+  title: '五十音书写顺序：平假名与片假名',
+  subtitle: '46 个清音 · 笔顺编号 · 动画演示',
+  minutes: 20,
+  intro: [
+    '本课专门练习五十音的书写顺序。点击任意假名，下方会同时展示对应平假名和片假名的笔顺编号与书写动画。',
+    '建议先看完整演示，再按数字顺序逐笔临摹；先掌握平假名，再用相同方法练习片假名。',
+  ],
+  sections: [
+    {
+      ...gojuonChart,
+      title: '五十音图 · 书写顺序（点击假名切换）',
+      writing: true,
+    },
+    {
+      type: 'text',
+      title: '书写练习建议',
+      paragraphs: [
+        '每次练习一行：先观察字形和每笔起点，再对照笔顺书写，最后不看提示独立默写。',
+        '练习时注意笔画方向、收笔和字形在方格中的比例，不要只追求写得快。',
+        '完成平假名后再练习片假名，并将容易混淆的字形放在一起比较，如 シ 与 ツ、ソ 与 ン。',
+      ],
+    },
+  ],
+})
+
+export default japaneseData
